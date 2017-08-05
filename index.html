@@ -3,8 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>mylij</title>
+    <script>delete module.exports</script>
+    <script type="text/javascript" src="./node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./node_modules/underscore/underscore.js"></script>
+    <script type="text/javascript" src="./node_modules/backbone/backbone.js"></script>
+    <script type="text/javascript" src="home.js"></script>
+    <script type="text/javascript" src="add.js"></script>
+    <script type="text/javascript" src="entries.js"></script>
+    <script type="text/javascript" src="visuals.js"></script>
+    <script type="text/javascript" src="router.js"></script>
   </head>
   <body>
-    <h1>mylij</h1>
+    <div id="root"><div>
+    <script type="text/javascript">
+      const router = new MylijRouter();
+
+      Backbone.history.start();
+
+      router.navigate('home')
+    </script>
   </body>
 </html>
