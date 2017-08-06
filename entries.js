@@ -30,19 +30,24 @@ const Entries = Backbone.View.extend({
         <div id='controls'>
           <a href='#home' class='btn btn-clear'><span class='glyphicon glyphicon-home'></span></a>
         </div>
-        <table class='table'>
-          <thead>
-            <tr>
-              <th>mi</th>
-              <th>gal</th>
-              <th>mpg</th>
-              <th>date</th>
-              <th>price</th>
-            </tr>
-          </thead>
-          <tbody id='entry-list'>
-          </tbody>
-        </table>
+
+        <div class='row'>
+          <div id='table-scroller' class='col-xs-12'>
+            <table class='table'>
+              <thead>
+                <tr>
+                  <th>mi</th>
+                  <th>gal</th>
+                  <th>mpg</th>
+                  <th>date</th>
+                  <th>price</th>
+                </tr>
+              </thead>
+              <tbody id='entry-list'>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     `
 

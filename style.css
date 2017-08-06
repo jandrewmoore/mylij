@@ -21,6 +21,16 @@ body {
   background-color: #fff;
 }
 
+#controls {
+  position: absolute;
+  top: 21px;
+  right: 16px;
+}
+
+#home {
+  background-color: #99cc66;
+}
+
 #avg-mileage {
   font-weight: bolder;
   font-size: 15em;
@@ -30,30 +40,26 @@ body {
   font-size: 5em;
 }
 
-#home {
-  background-color: #99cc66;
-}
-
 #add {
   background-color: #6699cc;
 }
 
+.operator, #mpg {
+  font-size: 3.7em;
+}
+
 #entries {
   background-color: #9966cc;
+  overflow: hidden;
+}
+
+#table-scroller {
+  max-height: 518px;
+  overflow: scroll;
 }
 
 #visuals {
   background-color: #cc9966;
-}
-
-#controls {
-  position: absolute;
-  top: 21px;
-  right: 16px;
-}
-
-.operator, #mpg {
-  font-size: 3.7em;
 }
 
 #deal-with-it {
