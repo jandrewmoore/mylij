@@ -22,6 +22,7 @@ const Add = Backbone.View.extend({
       this.collection.sync()
 
       this.model = new MylijModel()
+      this.listenTo(this.model, 'change:mpg', this.updateMpg)
       this.render();
     } else {
       console.log(this.model.validationError)
