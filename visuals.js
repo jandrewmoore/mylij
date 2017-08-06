@@ -10,8 +10,10 @@ const Visuals = Backbone.View.extend({
         <div id='controls'>
           <a href='#home' class='btn btn-clear'><span class='glyphicon glyphicon-home'></span></a>
         </div>
-        <p>Come back later for 📊 and 📈</p>
       </div>
+      <p id='deal-with-it' class="text-center"><span class='glyphicon glyphicon-sunglasses'></span></p>
+
+
     `
 
     return this;
