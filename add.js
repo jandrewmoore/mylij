@@ -48,7 +48,7 @@ const Add = Backbone.View.extend({
     const mpg = this.model.get('mpg')
 
     if (mpg) {
-      this.$('#mpg').text(`${mpg} mpg`)
+      this.$('#mpg').text(`${mpg}`)
     } else {
       this.$('#mpg').empty();
     }
@@ -80,31 +80,50 @@ const Add = Backbone.View.extend({
           <a href='#home' class='btn btn-clear'><span class='glyphicon glyphicon-home'></span></a>
         </div>
 
-        <form>
-          <div class='form-group'>
+        <div class='row'>
+          <div class='form-group col-xs-3'>
             <label for='miles'>miles</label>
-            <input id='miles' class='form-control' type='number' placeholder='0.0' />
+            <div class='input-group'>
+              <span class="input-group-addon"><span class='glyphicon glyphicon-dashboard'></span></span>
+              <input id='miles' class='form-control' type='number' placeholder='0.0' />
+            </div>
           </div>
-          <div class='form-group'>
+          <div class='col-xs-1 operator'>÷</div>
+          <div class='form-group col-xs-3'>
             <label for='gallons'>gallons</label>
-            <input id='gallons' class='form-control' type='number' placeholder='0.0' />
+            <div class='input-group'>
+              <span class="input-group-addon"><span class='glyphicon glyphicon-oil'></span></span>
+              <input id='gallons' class='form-control' type='number' placeholder='0.00' />
+            </div>
           </div>
-          <div class="form-group">
-            <label class=" control-label">mpg</label>
-            <p id='mpg' class="form-control-static"></p>
+          <div class='col-xs-1 operator'>=</div>
+          <div class='col-xs-4'>
+            <span id='mpg'></span>
           </div>
-        </form>
-        <form>
-          <div class='form-group'>
+        </div>
+
+        <div class='row'>
+          <div class='form-group col-xs-4'>
             <label for='date'>date</label>
-            <input id='date' class='form-control' type='date' />
+            <div class='input-group'>
+              <span class="input-group-addon"><span class='glyphicon glyphicon-calendar'></span></span>
+              <input id='date' class='form-control' type='date' />
+            </div>
           </div>
-          <div class='form-group'>
+          <div class='form-group col-xs-4'>
             <label for='price'>price</label>
-            <input id='price' class='form-control' type='number' placeholder='0.0' />
+            <div class='input-group'>
+              <span class="input-group-addon"><span class='glyphicon glyphicon-usd'></span></span>
+              <input id='price' class='form-control' type='number' placeholder='0.00' />
+            </div>
           </div>
-          <button id='save' class='btn btn-success'>save</button>
-        </form>
+        </div>
+
+        <div class='row'>
+          <div class='col-xs-1'>
+            <button id='save' class='btn btn-clear'>save</button>
+          </div>
+        </div>
       </div>
     `
 

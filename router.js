@@ -14,8 +14,6 @@ const MylijRouter = Backbone.Router.extend({
   loadHomePage: function () {
     const home = new Home({collection: this.collection});
     $('#root').html(home.render().el);
-
-    console.log('Load home page')
   },
 
   loadAddPage: function () {
@@ -23,23 +21,17 @@ const MylijRouter = Backbone.Router.extend({
       collection: this.collection,
       model: new MylijModel()
     })
-    
-    $('#root').html(add.render().el);
 
-    console.log('Load add page')
+    $('#root').html(add.render().el);
   },
 
   loadEntriesPage: function () {
     const entries = new Entries({collection: this.collection})
     $('#root').html(entries.render().el);
-
-    console.log('Load entries page')
   },
 
   loadVisualsPage: function () {
     const visuals = new Visuals({collection: this.collection})
     $('#root').html(visuals.render().el);
-
-    console.log('Load visuals page')
   }
 })
