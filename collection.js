@@ -2,20 +2,8 @@ const electron = require('electron')
 const path = require('path')
 const fs = require ('fs')
 
-const Mylij = Backbone.Model.extend({
-  parse: function (data) {
-    return {
-        miles: data.miles,
-        gallons: data.gallons,
-        date: new Date(data.date),
-        price: data.price,
-        mpg: data.mpg === undefined ? data.miles / data.gallons : data.mpg
-    }
-  }
-})
-
 const MylijCollection = Backbone.Collection.extend({
-  model: Mylij,
+  model: MylijModel,
 
   initialize: function () {
     const userDataPath = electron.remote.app.getPath('userData')
