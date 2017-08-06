@@ -11,7 +11,12 @@ const Add = Backbone.View.extend({
     if (!this.model.isValid()) {
       console.log(this.model.validationError)
     } else {
-      console.log(this.model.toJSON())
+      this.collection.add(this.model)
+
+      this.collection.sync();
+
+      this.model = new MylijModel()
+      this.render();
     }
   },
 
