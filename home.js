@@ -20,9 +20,9 @@ const Home = Backbone.View.extend({
           <a href='#entries' class='btn btn-clear'><span class='glyphicon glyphicon-th-list'></span></a>
           <a href='#visuals' class='btn btn-clear'><span class='glyphicon glyphicon-signal'></span></a>
         </div>
-        <span>
+        <div id='avg-mileage-container'>
           <span id="avg-mileage">${this.getAverageMileage().toFixed(2)}</span><span id='mpg-unit-label'> mpg</span>
-        </span>
+        </div>
       </div>
     `
 

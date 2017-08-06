@@ -31,6 +31,10 @@ body {
   background-color: #99cc66;
 }
 
+#avg-mileage-container {
+  margin-top: 5.5em;
+}
+
 #avg-mileage {
   font-weight: bolder;
   font-size: 15em;
