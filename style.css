@@ -1,0 +1,53 @@
+html, body, .container-fluid {
+  height: 100%;
+}
+
+body {
+  color: white;
+}
+
+.row {
+  height: 100%;
+}
+
+.btn-clear {
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.btn-clear:hover {
+  color: #333;
+  background-color: #fff;
+}
+
+#avg-mileage {
+  font-weight: bolder;
+  font-size: 15em;
+}
+
+#mpg-unit-label {
+  font-size: 5em;
+}
+
+#home {
+  background-color: #99cc66;
+}
+
+#add {
+  background-color: #6699cc;
+}
+
+#entries {
+  background-color: #9966cc;
+}
+
+#visuals {
+  background-color: #cc9966;
+}
+
+#controls {
+  position: absolute;
+  top: 21px;
+  right: 16px;
+}

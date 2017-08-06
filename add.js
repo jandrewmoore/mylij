@@ -1,4 +1,8 @@
 const Add = Backbone.View.extend({
+  id: 'add',
+
+  className: 'row',
+
   events: {
     'click #save': 'saveMylij',
     'input #miles': 'updateMiles',
@@ -7,13 +11,17 @@ const Add = Backbone.View.extend({
     'input #price': 'updatePrice',
   },
 
+  initialize: function () {
+    this.listenTo(this.model, 'change:mpg', this.updateMpg)
+  },
+
   saveMylij: function () {
     if (!this.model.isValid()) {
       console.log(this.model.validationError)
     } else {
       this.collection.add(this.model)
 
-      this.collection.sync();
+      this.collection.sync()
 
       this.model = new MylijModel()
       this.render();
@@ -25,7 +33,6 @@ const Add = Backbone.View.extend({
       this.model.set('miles', undefined)
     } else {
       this.model.set('miles', +this.$('#miles').val())
-      this.updateMpg()
     }
   },
 
@@ -34,7 +41,6 @@ const Add = Backbone.View.extend({
       this.model.set('gallons', undefined)
     } else {
       this.model.set('gallons', +this.$('#gallons').val())
-      this.updateMpg()
     }
   },
 
@@ -43,6 +49,8 @@ const Add = Backbone.View.extend({
 
     if (mpg) {
       this.$('#mpg').text(`${mpg} mpg`)
+    } else {
+      this.$('#mpg').empty();
     }
   },
 
@@ -50,7 +58,7 @@ const Add = Backbone.View.extend({
     if (this.$('#date').val() === '') {
       this.model.set('date', undefined)
     } else {
-      this.model.set('date', new Date(this.$('#date').val()))
+      this.model.set('date', this.$('#date').val())
     }
   },
 
@@ -64,30 +72,40 @@ const Add = Backbone.View.extend({
 
   render: function () {
     this.el.innerHTML = `
-      <h1>mylij / add</h1>
+      <div class='col-xs-12'>
 
-      <div>
-        <label for='miles'>miles</label>
-        <input id='miles' type='number' placeholder='0.0' />
-        /
-        <label for='gallons'>gallons</label>
-        <input id='gallons' type='number' placeholder='0.0' />
-        =
-        <span id='mpg'></span>
-      </div>
-      <div>
-        <label for='date'>date</label>
-        <input id='date' type='date' />
+        <h1>mylij / add</h1>
 
-        <label for='price'>price</label>
-        <input id='price' type='number' placeholder='0.0' />
-      </div>
-      <div>
-        <button id='save'>save</button>
-        <button id='cancel'>cancel</button>
-      </div>
+        <div id='controls'>
+          <a href='#home' class='btn btn-clear'><span class='glyphicon glyphicon-home'></span></a>
+        </div>
 
-      <a href='#home'>🏡</a>
+        <form>
+          <div class='form-group'>
+            <label for='miles'>miles</label>
+            <input id='miles' class='form-control' type='number' placeholder='0.0' />
+          </div>
+          <div class='form-group'>
+            <label for='gallons'>gallons</label>
+            <input id='gallons' class='form-control' type='number' placeholder='0.0' />
+          </div>
+          <div class="form-group">
+            <label class=" control-label">mpg</label>
+            <p id='mpg' class="form-control-static"></p>
+          </div>
+        </form>
+        <form>
+          <div class='form-group'>
+            <label for='date'>date</label>
+            <input id='date' class='form-control' type='date' />
+          </div>
+          <div class='form-group'>
+            <label for='price'>price</label>
+            <input id='price' class='form-control' type='number' placeholder='0.0' />
+          </div>
+          <button id='save' class='btn btn-success'>save</button>
+        </form>
+      </div>
     `
 
     return this;

@@ -10,6 +10,8 @@ const MylijModel = Backbone.Model.extend({
 
     if (miles && gallons) {
       this.set('mpg', miles / gallons)
+    } else {
+      this.set('mpg', undefined)
     }
   },
 
