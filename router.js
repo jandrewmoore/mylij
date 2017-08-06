@@ -21,6 +21,7 @@ const MylijRouter = Backbone.Router.extend({
   loadAddPage: function () {
     const add = new Add({
       collection: this.collection,
+      model: new MylijModel()
     })
     
     $('#root').html(add.render().el);

@@ -2,7 +2,7 @@ const Home = Backbone.View.extend({
   classname: 'mylij',
 
   getAverageMileage: function () {
-    return 42.0
+    return this.collection.reduce((memo, model) => memo + model.get('mpg'), 0) / this.collection.length
   },
 
   render: function() {
