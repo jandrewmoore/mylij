@@ -16,16 +16,24 @@ const Add = Backbone.View.extend({
   },
 
   saveMylij: function () {
-    if (!this.model.isValid()) {
-      console.log(this.model.validationError)
-    } else {
+    if (this.model.isValid()) {
       this.collection.add(this.model)
 
       this.collection.sync()
 
       this.model = new MylijModel()
       this.render();
+    } else {
+      console.log(this.model.validationError)
+      this.renderValidationErrors();
     }
+  },
+
+  renderValidationErrors: function () {
+    this.$('.has-error').removeClass('has-error')
+    this.model.validationError.missingFields.forEach(missingField => {
+      this.$(`#${missingField}-group`).addClass('has-error')
+    })
   },
 
   updateMiles: function () {
@@ -81,7 +89,7 @@ const Add = Backbone.View.extend({
         </div>
 
         <div class='row'>
-          <div class='form-group col-xs-3'>
+          <div id='miles-group' class='form-group col-xs-3'>
             <label for='miles'>miles</label>
             <div class='input-group'>
               <span class="input-group-addon"><span class='glyphicon glyphicon-dashboard'></span></span>
@@ -89,7 +97,7 @@ const Add = Backbone.View.extend({
             </div>
           </div>
           <div class='col-xs-1 operator'>÷</div>
-          <div class='form-group col-xs-3'>
+          <div id='gallons-group' class='form-group col-xs-3'>
             <label for='gallons'>gallons</label>
             <div class='input-group'>
               <span class="input-group-addon"><span class='glyphicon glyphicon-oil'></span></span>
@@ -103,14 +111,14 @@ const Add = Backbone.View.extend({
         </div>
 
         <div class='row'>
-          <div class='form-group col-xs-4'>
+          <div id='date-group' class='form-group col-xs-4'>
             <label for='date'>date</label>
             <div class='input-group'>
               <span class="input-group-addon"><span class='glyphicon glyphicon-calendar'></span></span>
               <input id='date' class='form-control' type='date' />
             </div>
           </div>
-          <div class='form-group col-xs-4'>
+          <div id='price-group' class='form-group col-xs-4'>
             <label for='price'>price</label>
             <div class='input-group'>
               <span class="input-group-addon"><span class='glyphicon glyphicon-usd'></span></span>
