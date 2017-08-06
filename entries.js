@@ -5,7 +5,7 @@ const Entry = Backbone.View.extend({
     this.el.innerHTML = `
         <td>${this.model.get('miles')}</td>
         <td>${this.model.get('gallons')}</td>
-        <td>${this.model.get('mpg')}</td>
+        <td>${this.model.get('mpg').toFixed(2)}</td>
         <td>${this.model.get('date')}</td>
         <td>${this.model.get('price')}</td>
     `

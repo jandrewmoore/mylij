@@ -57,7 +57,7 @@ const Add = Backbone.View.extend({
     const mpg = this.model.get('mpg')
 
     if (mpg) {
-      this.$('#mpg').text(`${mpg}`)
+      this.$('#mpg').text(`${mpg.toFixed(2)}`)
     } else {
       this.$('#mpg').empty();
     }
