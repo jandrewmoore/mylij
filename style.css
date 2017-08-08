@@ -75,7 +75,7 @@ body {
 
 #table-scroller {
   max-height: 524px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 #visuals {
