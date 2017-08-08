@@ -10,7 +10,8 @@ function createWindow() {
   win = new BrowserWindow({
     width: 800,
     height: 600,
-    resizable: false
+    resizable: false,
+    titleBarStyle: 'hidden'
   })
 
   win.loadURL(url.format({

@@ -27,6 +27,10 @@ body {
   right: 16px;
 }
 
+#root {
+  overflow: hidden;
+}
+
 #home {
   background-color: #99cc66;
 }
@@ -70,7 +74,7 @@ body {
 }
 
 #table-scroller {
-  max-height: 518px;
+  max-height: 524px;
   overflow: scroll;
 }
 
